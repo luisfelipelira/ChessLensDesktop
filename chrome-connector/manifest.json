@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "ChessLens Connector",
+  "version": "1.8.0",
+  "description": "Conecta tabuleiros de análise, puzzles e bots ao ChessLens Desktop.",
+  "permissions": ["debugger", "tabs"],
+  "host_permissions": ["http://127.0.0.1:43119/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [{
+    "matches": ["https://www.chess.com/*", "https://chess.com/*", "https://lichess.org/*"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }]
+}
